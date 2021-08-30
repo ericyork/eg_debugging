@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Debugging Resources</title>
+    <style>
+    *, ::after, ::before {box-sizing: border-box;}
+    body {margin: 1em auto;background: #ececec;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";line-height: 1.5;font-size:18px;}
+    html, body, article, section, div, h1, h2, h3, h4, h5, h6, p {margin: 0; padding: 0;}
+    section {background: #fafafa;max-width: 150ch;margin: 1em auto; padding: 1em;border: 1px solid #e0e0e0;border-radius:4px;}
+    .steps {display: grid;grid-template-columns:1fr;grid-gap: 1rem 1rem;align-items: start;}
+    .step {background: #ececec;max-width: 75ch;padding: 1em;border: 1px solid #e0e0e0;border-radius:4px;position: relative;opacity:.8;cursor:pointer;}
+    div.step:hover {opacity: 1;}
+    .hero-content {max-width: 75ch;margin: 1em auto;padding: 0;border: none;}
+    code {background: #e0e0e0; padding: .2em .5em .2em .5em;}
+    h3 {margin-bottom: 0; padding-bottom: 0;}
+    h3:after {content:'\002B'; position: absolute; top: -.25rem;right: 1rem;font-size: 3rem;}
+    h3.opened:after {content: "\2212";}
+    p:not(:first-child) {margin-top: 1em;}
+    img {width: 100%; height: auto;}
+    .collapse {display: block;max-height: 0px;overflow: hidden;transition: max-height .5s cubic-bezier(0, 1, 0, 1);}
+    .collapse.show {max-height: 99em;transition: max-height .5s ease-in-out;}
+    @media screen and (min-width: 950px) {.steps{grid-template-columns:1fr 1fr;}}
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Debugging Resources</h1>
+        <p>This article presents some basic methods for debugging your HTML and CSS. Here, we are trying to be as brief as possible, however this comes at the cost of leaving a lot things out. The <em>actual</em> best sources of debugging info are available at the links below.</p>
+        <p>The <em>Mozilla Developer's Network</em> <a href="https://developer.mozilla.org/en-US/docs">Web Docs</a> are perhaps the most authoritative sources for language specifications, explanatory materials, and tutorials.
+          <ul>
+            <li>MDN's <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML">Debugging HTML</a></li>
+            <li>MDN's <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS">Debugging CSS</a></li>
+          </ul>
+        </p>
+      </div>
+    </section>
+    <section class="steps">
+      <div class="step">
+        <h3>Source of Bugs</h3>
+          <div class="collapse"><p>All bugs come from one of two sources. They are either <strong>syntax</strong> erorrs or <strong>logic</strong> erorrs. Syntax errors are when a spelling or grammar error, i.e. a typo, prevents the browser from correctly reading the code. A logic error is when the code is correct, but doesn't make sense or doesn't do what you want it to. Always check for syntax errors first, as typing mistakes are most common.</p>
+          <p>The most common sources of syntax errors are:
+            <ol>
+              <li>missing punctuation, such as angle brackets or semi-colons</li>
+              <li>missing end-tags or improperly nested tags</li>
+              <li>misspelled names of classes, tags, or ids.</li>
+            </ol>
+          </p>
+        </div>
+      </div><!--end .step-->
+      <div class="step">
+        <h3>Best Defense</h3>
+        <div class="collapse">
+          <p>The best defense against bugs is to prevent them. Move through tasks one step at a time, checking your work as you go. If you make a change, check in the browser to see what effect it had. If something breaks, look back at what you just did. What you don't want is to write hundred lines of code and then notice that the page is broken: how would you ever know where the errors are? So your first secret weapon is to only make one change at a time and then to test it.</p>
+          <p>You other secret weapon is to use the browser's inspector to view the element and inspect what is going on.</p>
+          <p>If an included asset, like an image or CSS file, isn't working, check the file path to make sure it's correct.</p>
+        </div>
+      </div><!--end .step-->
+      <div class="step">
+        <h3>Validate Your Code</h3>
+        <div class="collapse">
+          <p>Inevitably you will make errors and not notice that you have made them or not be able to find them. When you do, you can turn to code validators. The W3C maintains excellent tools that can scan your code for common errors.</p>
+          <p><a href="https://validator.w3.org/#validate_by_input">HTML Validation</a></p>
+          <p><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">CSS Validation</a></p>
+          <p>Once you've pasted in and checked your code, you should work your way through any errors you get. Of course, many of the errors you get will be mysterious at first, so google them to learn how to resolve them.</p>
+          <p>If you get no errors, that's a good sign it's an error of logic (lack of understanding) rather than and error of syntax (a typo or misspelling).</p>
+        </div>
+      </div><!--end .step-->
+      <div class="step">
+        <h3>Add a Border</h3>
+        <div class="collapse">
+          <p>One way to debug logical CSS errors is to add a visible border around an element. For example you can write a rule like <code>.debug {border: 1px solid red;}</code> and then add that class to whatever elements you need. This will show where elements are actually positioned and the space they are actually taking up.</p>
+        </div>
+      </div><!--end .step-->
+      <div class="step">
+        <h3>Look it up on Google</h3>
+        <div class="collapse">
+          <p>Sometimes you won't be able to find the error. In that case, you should look up and read about the property or element you're trying to use. Find a working example and try to implement that, first, and then modify it. Learning how to effectively search for answers is a big part of learning to write code.</p>
+          <p>Some well-respected resources are linked below:
+            <ul>
+              <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+              <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
+              <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/">MDN Docs</a></li>
+            </ul>
+          </p>
+        </div>
+      </div><!--end .step-->
+      <div class="step">
+        <h3>Isolate the Problem</h3>
+        <div class="collapse">
+          <p>Figuring out where, roughly, the problem is occuring, is half the battle. If you can rule out entire files or sections of your code, then you can focus your attention on what's left.</p>
+          <p>Try removing sections of the code systematically to see if the errors persists. If you remove code and the error disappears, that's a sign the error was in the code you removed.</p>
+          <p>Go back to when it was working and re-add the code a bit at a time until the error appears again. What did you just add?</p>
+          <p>Replace parts of the code with a known working example and start modifying it a little bit at a time, checking as you go.</p>
+        </div>
+      </div><!--end .step-->
+  </section>
+  <script>
+      var el = document.getElementsByClassName("step");
+      var i;
+
+      for (i = 0; i < el.length; i++) {
+        el[i].addEventListener("click", function() {
+          var tog = this.childNodes[1].classList.toggle("opened")
+          var content = this.childNodes[1].nextElementSibling;
+          content.classList.toggle("show");
+        });
+      }
+  </script>
+  </body>
+</html>
